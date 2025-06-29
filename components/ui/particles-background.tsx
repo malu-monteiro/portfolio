@@ -3,10 +3,10 @@
 import React, { useMemo, useCallback } from "react";
 
 import Particles from "react-tsparticles";
-import type { Container, ISourceOptions, Engine } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim";
+import type { Container, ISourceOptions, Engine } from "tsparticles-engine";
 
-export default function ParticleBackground() {
+export default function ParticlesBackground() {
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);

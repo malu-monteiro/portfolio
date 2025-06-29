@@ -1,4 +1,4 @@
-import ParticleBackground from "./particle-background";
+import ParticleBackground from "./particles-background";
 
 export default function Background() {
   return (
