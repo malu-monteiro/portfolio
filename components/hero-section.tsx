@@ -37,6 +37,7 @@ export default function HeroSection() {
           {/* Main Content */}
           <div className="relative w-full z-10">
             <Container>
+              {/* <div class="absolute animate-ping rounded-full bg-green-400 h-2.5 w-2.5 mr-2">Available</div> */}
               <div className="mx-auto lg:ml-0 lg:max-w-3xl">
                 {/* Title */}
                 <h1 className="text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-tight">
@@ -69,9 +70,7 @@ export default function HeroSection() {
                     variant="ghost"
                     className="px-8 h-12 text-base font-medium bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-colors duration-200"
                   >
-                    <Link href="#cv" className="text-white">
-                      Download CV
-                    </Link>
+                    <Link href="#cv">Download CV</Link>
                   </Button>
                 </div>
               </div>
