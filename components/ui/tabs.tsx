@@ -21,9 +21,9 @@ function Tabs({ className, ...props }: AriaTabsProps) {
     <AriaTabs
       className={composeRenderProps(className, (className) =>
         cn(
-          "group flex flex-col gap-2",
-          /* Orientation */
+          "group flex flex-col gap-2" /* Orientation */,
           "data-[orientation=vertical]:flex-row",
+
           className
         )
       )}
@@ -34,6 +34,7 @@ function Tabs({ className, ...props }: AriaTabsProps) {
 
 const TabList = <T extends object>({
   className,
+
   ...props
 }: AriaTabListProps<T>) => (
   <AriaTabList
@@ -45,6 +46,7 @@ const TabList = <T extends object>({
         "border border-white/20",
         "text-neutral-300",
         "data-[orientation=vertical]:h-auto data-[orientation=vertical]:flex-col",
+
         className
       )
     )}
@@ -63,7 +65,6 @@ const Tab = ({ className, ...props }: AriaTabProps) => (
         "data-[selected]:bg-primary",
         "data-[selected]:text-primary-foreground",
         "data-[selected]:shadow-md",
-
         className
       )
     )}
@@ -75,8 +76,7 @@ const TabPanel = ({ className, ...props }: AriaTabPanelProps) => (
   <AriaTabPanel
     className={composeRenderProps(className, (className) =>
       cn(
-        "mt-2 ring-offset-background",
-        /* Focus Visible */
+        "mt-2 ring-offset-background" /* Focus Visible */,
         "data-[focus-visible]:outline-none data-[focus-visible]:ring-2 data-[focus-visible]:ring-ring data-[focus-visible]:ring-offset-2",
         className
       )
