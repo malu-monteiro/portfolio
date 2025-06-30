@@ -43,16 +43,6 @@ const SKILLS_DATA = [
       "Code Quality & Maintainability",
     ],
   },
-  {
-    id: "4",
-    title: "Soft Skills / Extras",
-    skills: [
-      "Problem Solving",
-      "Collaboration & Communication",
-      "Continuous Learning",
-      "Languages (Português, Español, English)",
-    ],
-  },
 ];
 
 const TOOLS_SVG_DATA = [
