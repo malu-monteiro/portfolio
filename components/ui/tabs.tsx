@@ -23,7 +23,6 @@ function Tabs({ className, ...props }: AriaTabsProps) {
         cn(
           "group flex flex-col gap-2" /* Orientation */,
           "data-[orientation=vertical]:flex-row",
-
           className
         )
       )}
@@ -34,19 +33,17 @@ function Tabs({ className, ...props }: AriaTabsProps) {
 
 const TabList = <T extends object>({
   className,
-
   ...props
 }: AriaTabListProps<T>) => (
   <AriaTabList
     className={composeRenderProps(className, (className) =>
       cn(
-        "inline-flex h-auto items-center justify-center rounded-md p-1",
+        "flex flex-wrap sm:inline-flex h-auto items-center justify-center rounded-md p-1 gap-1 sm:gap-0",
         "bg-white/10",
         "backdrop-blur-sm",
         "border border-white/20",
         "text-neutral-300",
         "data-[orientation=vertical]:h-auto data-[orientation=vertical]:flex-col",
-
         className
       )
     )}
@@ -60,11 +57,12 @@ const Tab = ({ className, ...props }: AriaTabProps) => (
       cn(
         "inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium transition-all",
         "outline-none disabled:pointer-events-none disabled:opacity-50",
-        "data-[focus-visible]:ring-2 data-[focus-visible]:ring-ring data-[focus-visible]:ring-offset-2",
+        "focus:outline-none focus-visible:outline-none",
         "hover:text-white",
         "data-[selected]:bg-primary",
         "data-[selected]:text-primary-foreground",
         "data-[selected]:shadow-md",
+        "text-xs sm:text-sm px-2 py-1 sm:px-3 sm:py-1.5",
         className
       )
     )}
@@ -76,8 +74,8 @@ const TabPanel = ({ className, ...props }: AriaTabPanelProps) => (
   <AriaTabPanel
     className={composeRenderProps(className, (className) =>
       cn(
-        "mt-2 ring-offset-background" /* Focus Visible */,
-        "data-[focus-visible]:outline-none data-[focus-visible]:ring-2 data-[focus-visible]:ring-ring data-[focus-visible]:ring-offset-2",
+        "mt-2 ring-offset-background",
+        "focus:outline-none focus-visible:outline-none",
         className
       )
     )}

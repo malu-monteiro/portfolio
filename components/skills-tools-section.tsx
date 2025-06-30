@@ -1,6 +1,7 @@
-import Image from "next/image";
+"use client";
 
 import { Container } from "./ui/container";
+import { ToolsMarquee } from "./ui/marquee";
 import { Tab, TabList, TabPanel, Tabs } from "./ui/tabs";
 
 const SKILLS_DATA = [
@@ -45,19 +46,6 @@ const SKILLS_DATA = [
   },
 ];
 
-const TOOLS_SVG_DATA = [
-  { name: "Figma", url: "/figma.svg" },
-  { name: "React", url: "/react.svg" },
-  { name: "TypeScript", url: "/typescript.svg" },
-  { name: "Next", url: "/next.svg" },
-  { name: "Tailwind", url: "/tailwind.svg" },
-  { name: "Node.js", url: "/node.svg" },
-  { name: "Git", url: "/git.svg" },
-  { name: "GitHub", url: "/github.svg" },
-  { name: "PostgreSQL", url: "/pgsql.svg" },
-  { name: "Insomnia", url: "/insomnia.svg" },
-  { name: "Jest", url: "/jest.svg" },
-];
 export default function SkillsToolsSection() {
   return (
     <section className="py-16 sm:py-20 md:py-24 bg-black" id="about">
@@ -68,7 +56,7 @@ export default function SkillsToolsSection() {
           </h2>
 
           {/* Skills section */}
-          <Tabs>
+          <Tabs className="flex flex-col items-center">
             <TabList aria-label="My skills" className="mx-auto max-w-fit">
               {SKILLS_DATA.map(({ id, title }) => (
                 <Tab key={id} id={id}>
@@ -76,44 +64,25 @@ export default function SkillsToolsSection() {
                 </Tab>
               ))}
             </TabList>
-            {/* Mover lista pra esquerda ao invés de centralizar */}
-            {SKILLS_DATA.map(({ id, skills }) => (
-              <TabPanel key={id} id={id} className="min-h-[250px]">
-                <div className="mx-auto max-w-fit">
-                  <ul className="list-disc space-y-1 text-gray-300">
+            <div className="w-full max-w-md">
+              {SKILLS_DATA.map(({ id, skills }) => (
+                <TabPanel key={id} id={id} className="min-h-[250px] mt-4">
+                  <ul className="list-disc space-y-1 text-gray-300 pl-4 text-left">
                     {skills.map((skill) => (
                       <li key={skill}>{skill}</li>
                     ))}
                   </ul>
-                </div>
-              </TabPanel>
-            ))}
+                </TabPanel>
+              ))}
+            </div>
           </Tabs>
 
-          {/* Tools section */}
-          {/* Adicionar um carrossel aqui */}
+          {/* Tools section with Marquee */}
           <div className="mt-10">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white mb-6 text-center">
               My Tools
             </h3>
-            <div className="flex flex-wrap gap-8 justify-center">
-              {TOOLS_SVG_DATA.map((tool) => (
-                <div
-                  key={tool.name}
-                  className="flex flex-col items-center justify-center w-28 h-28 p-2 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg transition-all duration-300 ease-in-out hover:bg-white/20 hover:border-white/30"
-                >
-                  <Image
-                    src={tool.url}
-                    alt={`${tool.name} icon`}
-                    width={40}
-                    height={40}
-                  />
-                  <span className="text-gray-300 text-sm mt-2 text-center">
-                    {tool.name}
-                  </span>
-                </div>
-              ))}
-            </div>
+            <ToolsMarquee />
           </div>
         </div>
       </Container>
