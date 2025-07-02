@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Container } from "./ui/container";
 import { ToolsMarquee } from "./ui/marquee";
 import { Tab, TabList, TabPanel, Tabs } from "./ui/tabs";
@@ -48,34 +49,68 @@ const SKILLS_DATA = [
 
 export default function SkillsToolsSection() {
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-black" id="about">
+    <section className="py-16 sm:py-20 md:py-24 bg-black" id="skills">
       <Container>
         <div className="space-y-6">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white text-center">
             Skills & Tools
           </h2>
 
-          {/* Skills section */}
-          <Tabs className="flex flex-col items-center">
-            <TabList aria-label="My skills" className="mx-auto max-w-fit">
-              {SKILLS_DATA.map(({ id, title }) => (
-                <Tab key={id} id={id}>
-                  {title}
-                </Tab>
-              ))}
-            </TabList>
-            <div className="w-full max-w-md">
-              {SKILLS_DATA.map(({ id, skills }) => (
-                <TabPanel key={id} id={id} className="min-h-[250px] mt-4">
-                  <ul className="list-disc space-y-1 text-gray-300 pl-4 text-left">
-                    {skills.map((skill) => (
-                      <li key={skill}>{skill}</li>
-                    ))}
-                  </ul>
-                </TabPanel>
-              ))}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="w-full md:w-1/2">
+              <Tabs className="flex flex-col items-center md:items-start">
+                <TabList
+                  aria-label="My skills"
+                  className="mx-auto max-w-fit md:mx-0"
+                >
+                  {SKILLS_DATA.map(({ id, title }) => (
+                    <Tab key={id} id={id}>
+                      {title}
+                    </Tab>
+                  ))}
+                </TabList>
+
+                <div className="w-full max-w-md md:max-w-none">
+                  {SKILLS_DATA.map(({ id, skills }) => (
+                    <TabPanel key={id} id={id} className="min-h-[250px] mt-4">
+                      <ul className="list-disc space-y-1 text-gray-300 pl-4 text-left">
+                        {skills.map((skill) => (
+                          <li key={skill}>{skill}</li>
+                        ))}
+                      </ul>
+                    </TabPanel>
+                  ))}
+                </div>
+              </Tabs>
             </div>
-          </Tabs>
+
+            {/* Image section with Purple Glow */}
+            <div className="w-full md:w-1/2 flex justify-center md:justify-end relative">
+              <div
+                className="absolute z-0"
+                style={{
+                  width: "285px",
+                  height: "53px",
+                  backgroundColor: "#7505FF",
+                  borderRadius: "100%",
+                  opacity: 1,
+                  filter: "blur(40px)",
+                  bottom: "10px",
+                  left: "50%",
+                  transform: "translateX(-30%)",
+                }}
+                aria-hidden="true"
+              />
+
+              <Image
+                src="/skills.svg"
+                alt="Skills Illustration"
+                width={400}
+                height={400}
+                className="max-w-full h-auto object-contain z-10 relative"
+              />
+            </div>
+          </div>
 
           {/* Tools section with Marquee */}
           <div className="mt-10">
