@@ -57,6 +57,7 @@ export default function SkillsToolsSection() {
           </h2>
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+            {/* Tabs Section */}
             <div className="w-full md:w-1/2">
               <Tabs className="flex flex-col items-center md:items-start">
                 <TabList
@@ -73,7 +74,7 @@ export default function SkillsToolsSection() {
                 <div className="w-full max-w-md md:max-w-none">
                   {SKILLS_DATA.map(({ id, skills }) => (
                     <TabPanel key={id} id={id} className="min-h-[250px] mt-4">
-                      <ul className="list-disc space-y-1 text-gray-300 pl-4 text-left">
+                      <ul className="list-disc space-y-1 text-gray-300 pl-4">
                         {skills.map((skill) => (
                           <li key={skill}>{skill}</li>
                         ))}
@@ -84,21 +85,11 @@ export default function SkillsToolsSection() {
               </Tabs>
             </div>
 
-            {/* Image section with Purple Glow */}
+            {/* Image Section */}
             <div className="w-full md:w-1/2 flex justify-center md:justify-end relative">
+              {/* Purple Glow Effect */}
               <div
-                className="absolute z-0"
-                style={{
-                  width: "285px",
-                  height: "53px",
-                  backgroundColor: "#7505FF",
-                  borderRadius: "100%",
-                  opacity: 1,
-                  filter: "blur(40px)",
-                  bottom: "10px",
-                  left: "50%",
-                  transform: "translateX(-30%)",
-                }}
+                className="absolute -bottom-2 left-1/2 -translate-x-[30%] w-[285px] h-[53px] bg-purple-600 rounded-full opacity-100 blur-[40px] z-20"
                 aria-hidden="true"
               />
 
@@ -107,12 +98,12 @@ export default function SkillsToolsSection() {
                 alt="Skills Illustration"
                 width={400}
                 height={400}
-                className="max-w-full h-auto object-contain z-10 relative"
+                className="max-w-full h-auto object-contain relative z-10"
               />
             </div>
           </div>
 
-          {/* Tools section with Marquee */}
+          {/* Tools Section */}
           <div className="mt-10">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white mb-6 text-center">
               My Tools
