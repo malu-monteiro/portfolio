@@ -18,7 +18,6 @@ const SKILLS_DATA = [
       "Responsive Web Design",
     ],
   },
-
   {
     id: "2",
     title: "Frontend Development",
@@ -33,7 +32,6 @@ const SKILLS_DATA = [
       "Technical SEO & Metadata Management",
     ],
   },
-
   {
     id: "3",
     title: "Backend & Architecture",
@@ -59,17 +57,13 @@ export default function SkillsToolsSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {SKILLS_DATA.map(({ id, title, skills }) => (
-              <SpotlightCard
-                key={id}
-                className="custom-spotlight-card"
-                spotlightColor="rgba(118, 5, 255, 0.315)"
-              >
+              <SpotlightCard key={id} className="custom-spotlight-card">
                 <div className="text-neutral-300 p-6 flex flex-col h-full">
                   <h3 className="text-xl font-semibold text-white mb-4">
                     {title}
                   </h3>
 
-                  <ul className="list-disc space-y-1 text-gray-300">
+                  <ul className="list-disc list-inside space-y-1 text-gray-300">
                     {skills.map((skill) => (
                       <li key={skill}>{skill}</li>
                     ))}
