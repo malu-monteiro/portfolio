@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useCallback } from "react";
+import { useMemo, useCallback } from "react";
 
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";

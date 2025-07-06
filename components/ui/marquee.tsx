@@ -98,10 +98,8 @@ const ToolCard = ({ name, url }: { name: string; url: string }) => {
     <figure
       className={cn(
         "relative h-full w-32 cursor-pointer overflow-hidden rounded-xl border p-4",
-        // light styles
-        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+        "dark:border-zinc-50/[.1] dark:bg-zinc-50/[.10] dark:hover:bg-zinc-50/[.15]"
       )}
     >
       <div className="flex flex-col items-center justify-center gap-3 h-full">
