@@ -1,20 +1,19 @@
 module.exports = {
   theme: {
     extend: {
-      animation: {
-        "custom-star-movement-bottom":
-          "custom-star-movement-bottom linear infinite",
-        "custom-star-movement-top": "custom-star-movement-top linear infinite",
-      },
       keyframes: {
-        "custom-star-movement-bottom": {
-          "0%": { transform: "translate(0%, 0%)", opacity: "1" },
-          "100%": { transform: "translate(-100%, 0%)", opacity: "0" },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
-        "custom-star-movement-top": {
-          "0%": { transform: "translate(0%, 0%)", opacity: "1" },
-          "100%": { transform: "translate(100%, 0%)", opacity: "0" },
+        scaleIn: {
+          "0%": { transform: "scale(0.9)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
         },
+      },
+      animation: {
+        fadeIn: "fadeIn 0.3s ease-out forwards",
+        scaleIn: "scaleIn 0.3s ease-out forwards",
       },
     },
   },
