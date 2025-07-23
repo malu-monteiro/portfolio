@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 
-import { Carousel } from "./ui/carousel";
-import { Container } from "./ui/container";
-import { ProjectModal } from "./ui/project-modal";
-import { projects, ProjectCard } from "./ui/project-card";
+import { Carousel } from "../ui/carousel";
+import { ProjectModal } from "../ui/project-modal";
 
-export default function PortfolioSection() {
+import { MaxWidthWrapper } from "../max-width-wrapper";
+import { projects, ProjectCard } from "../ui/project-card";
+
+export default function Portfolio() {
   const [activeModalIndex, setActiveModalIndex] = useState<number | null>(null);
 
   const selectedProject =
@@ -24,15 +25,19 @@ export default function PortfolioSection() {
 
   return (
     <section className="bg-black py-16 sm:py-20 md:py-24" id="portfolio">
-      <Container>
-        <div className="space-y-10">
+      <MaxWidthWrapper>
+        <div className="space-y-6">
           <h2 className="text-center text-2xl font-medium text-white sm:text-3xl md:text-4xl">
-            My Portfolio
+            Portfolio
           </h2>
 
-          <Carousel items={carouselItems} />
+          <h3 className="font-light text-center">Lorem ipsum dolor sit amet</h3>
+
+          <div className="mt-16">
+            <Carousel items={carouselItems} />
+          </div>
         </div>
-      </Container>
+      </MaxWidthWrapper>
 
       {selectedProject && (
         <ProjectModal

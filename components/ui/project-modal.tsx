@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { Button } from "./button";
 
 interface ProjectModalProps {
   isOpen: boolean;
@@ -68,16 +69,7 @@ export function ProjectModal({
 
         <p className="mb-6 leading-relaxed text-gray-300">{description}</p>
 
-        {projectLink && (
-          <a
-            href={projectLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block rounded-lg bg-purple-600 px-4 py-2 font-semibold text-white transition-colors duration-200 hover:bg-purple-700"
-          >
-            View on GitHub
-          </a>
-        )}
+        {projectLink && <Button variant="primary">View on GitHub</Button>}
       </div>
     </div>
   );

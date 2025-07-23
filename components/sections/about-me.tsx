@@ -1,10 +1,13 @@
-import Image from "next/image";
-import { Container } from "./ui/container";
+"use client";
 
-export default function AboutSection() {
+import Image from "next/image";
+
+import { MaxWidthWrapper } from "../max-width-wrapper";
+
+export default function AboutMe() {
   return (
     <section className="py-16 sm:py-20 md:py-24 bg-black" id="about">
-      <Container>
+      <MaxWidthWrapper>
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           {/* Image Section */}
           <div className="w-full md:w-1/2 flex justify-center md:justify-start relative">
@@ -24,16 +27,15 @@ export default function AboutSection() {
           </div>
 
           {/* Content Section */}
-          <div className="w-full md:w-1/2 space-y-6">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white">
-              About me
-            </h2>
 
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-light bg-gradient-to-r from-purple-100 to-purple-400 text-transparent bg-clip-text">
+          <div className="w-full md:w-1/2 space-y-6">
+            <h2>About me</h2>
+
+            <h3 className="font-light bg-gradient-to-r from-purple-100 to-purple-400 text-transparent bg-clip-text">
               Lorem ipsum dolor sit amet
             </h3>
 
-            <div className="space-y-4 text-base sm:text-lg text-white/80 leading-relaxed">
+            <div className="space-y-4">
               <p>
                 Quisque condimentum vestibulum urna eget dapibus. In molestie,
                 augue sed commodo tristique, sem lorem viverra ex, nec efficitur
@@ -58,7 +60,7 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
-      </Container>
+      </MaxWidthWrapper>
     </section>
   );
 }

@@ -1,15 +1,15 @@
-import HeroSection from "../components/hero-section";
-import AboutSection from "../components/about-section";
-import SkillsToolsSection from "../components/skills-tools-section";
-import PortfolioSection from "../components/portfolio-section";
+import Hero from "../components/sections/hero";
+import AboutMe from "../components/sections/about-me";
+import LanguagesAndTools from "../components/sections/languages-and-tools";
+import Portfolio from "../components/sections/portfolio";
 
 export default function Home() {
   return (
     <>
-      <HeroSection />
-      <AboutSection />
-      <SkillsToolsSection />
-      <PortfolioSection />
+      <Hero />
+      <AboutMe />
+      <LanguagesAndTools />
+      <Portfolio />
     </>
   );
 }

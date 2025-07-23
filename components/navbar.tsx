@@ -5,7 +5,7 @@ import { useState, useCallback } from "react";
 import Link from "next/link";
 
 import { Logo } from "./ui/logo";
-import { Container } from "./ui/container";
+import { MaxWidthWrapper } from "./max-width-wrapper";
 
 import { Menu, X } from "lucide-react";
 
@@ -13,10 +13,11 @@ const menuItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Portfolio", href: "#portfolio" },
+  { name: "Qualifications", href: "#qualifications" },
   { name: "Contact", href: "#contact" },
 ] as const;
 
-export const HeroHeader = () => {
+export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = useCallback(() => {
@@ -28,14 +29,11 @@ export const HeroHeader = () => {
   }, []);
 
   return (
-    <header>
-      <nav
-        data-state={isMenuOpen ? "active" : ""}
-        className="bg-background/50 fixed z-20 w-full border-b backdrop-blur-3xl"
-      >
-        <Container className="transition-all duration-300">
-          <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
-            {/* Container Logo + Nav Desktop + Mobile Button */}
+    <header className="bg-background/50 fixed z-20 w-full backdrop-blur-3xl">
+      <nav data-state={isMenuOpen ? "active" : ""}>
+        <MaxWidthWrapper className="transition-all duration-300">
+          <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 border-b lg:gap-0 lg:py-4">
+            {/* MaxWidthWrapper Logo + Nav Desktop + Mobile Button */}
             <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
               <Link
                 href="/"
@@ -104,8 +102,8 @@ export const HeroHeader = () => {
               </div>
             </div>
           </div>
-        </Container>
+        </MaxWidthWrapper>
       </nav>
     </header>
   );
-};
+}

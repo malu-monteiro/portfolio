@@ -12,7 +12,7 @@ export default function ParticlesBackground() {
   }, []);
 
   const particlesLoaded = useCallback(
-    async (container: Container | undefined) => {},
+    async (Container: Container | undefined) => {},
     []
   );
 
