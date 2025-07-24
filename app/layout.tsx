@@ -21,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${manropeSans.variable} antialiased`}>{children}</body>
+      <body className={`${manropeSans.variable} antialiased bg-black`}>
+        {children}
+      </body>
     </html>
   );
 }

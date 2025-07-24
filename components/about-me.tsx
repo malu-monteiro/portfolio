@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 
-import { MaxWidthWrapper } from "../max-width-wrapper";
+import { MaxWidthWrapper } from "./max-width-wrapper";
 
 export default function AboutMe() {
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-black" id="about">
+    <section className="py-16 sm:py-20 md:py-24" id="about">
       <MaxWidthWrapper>
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           {/* Image Section */}
@@ -27,9 +27,14 @@ export default function AboutMe() {
           </div>
 
           {/* Content Section */}
-
           <div className="w-full md:w-1/2 space-y-6">
-            <h2>About me</h2>
+            <div className="inline-flex items-center gap-x-2 rounded-lg border px-3 py-1 text-sm font-medium mb-4">
+              <span className="relative flex h-2 w-2">
+                <span className="relative block h-2 w-2 rounded-full bg-purple-100" />
+              </span>
+
+              <span className="inline font-mono">About me</span>
+            </div>
 
             <h3 className="font-light bg-gradient-to-r from-purple-100 to-purple-400 text-transparent bg-clip-text">
               Lorem ipsum dolor sit amet

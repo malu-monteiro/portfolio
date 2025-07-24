@@ -1,12 +1,10 @@
-"use client";
-
 import { useMemo, useCallback } from "react";
 
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import type { Container, ISourceOptions, Engine } from "tsparticles-engine";
 
-export default function ParticlesBackground() {
+export function ParticlesBackground() {
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
@@ -61,12 +59,14 @@ export default function ParticlesBackground() {
   );
 
   return (
-    <Particles
-      id="tsparticles"
-      init={particlesInit}
-      loaded={particlesLoaded}
-      options={options}
-      className="h-full w-full"
-    />
+    <div className="absolute inset-0" aria-hidden="true">
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        loaded={particlesLoaded}
+        options={options}
+        className="h-full w-full"
+      />
+    </div>
   );
 }

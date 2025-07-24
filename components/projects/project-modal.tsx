@@ -1,7 +1,6 @@
-"use client";
-
 import { useEffect, useRef } from "react";
-import { Button } from "./button";
+
+import { Button } from "../ui/button";
 
 interface ProjectModalProps {
   isOpen: boolean;

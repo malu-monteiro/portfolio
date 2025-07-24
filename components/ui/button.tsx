@@ -1,6 +1,7 @@
-import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
+
 import { cva, type VariantProps } from "class-variance-authority";
+
 import { cn } from "../../lib/utils";
 
 const buttonVariants = cva(
@@ -27,7 +28,7 @@ const buttonVariants = cva(
         sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
         icon: "size-9",
-        hero: "h-12 px-8 text-base font-medium",
+        hero: "h-10 px-4 text-sm font-medium sm:h-12 sm:px-8 sm:text-base md:px-10",
       },
     },
     defaultVariants: {

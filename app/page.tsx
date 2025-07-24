@@ -1,15 +1,17 @@
-import Hero from "../components/sections/hero";
-import AboutMe from "../components/sections/about-me";
-import LanguagesAndTools from "../components/sections/languages-and-tools";
-import Portfolio from "../components/sections/portfolio";
+import Hero from "@/components/hero";
+import AboutMe from "@/components/about-me";
+import TechStack from "@/components/techstack";
+import Projects from "@/components/projects";
+import Experience from "@/components/experience";
 
 export default function Home() {
   return (
     <>
       <Hero />
       <AboutMe />
-      <LanguagesAndTools />
-      <Portfolio />
+      <TechStack />
+      <Projects />
+      <Experience />
     </>
   );
 }
