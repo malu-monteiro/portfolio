@@ -13,7 +13,7 @@ interface Project {
 
 export const projects: Project[] = [
   {
-    image: "/aboutimg.png",
+    image: "/about-image.png",
     title: "Projeto 1",
     icons: ["uil", "uil-react"],
     tags: ["Next.js", "TailwindCSS", "PostCSS"],
@@ -22,7 +22,7 @@ export const projects: Project[] = [
     projectLink: "https://website-estetica.vercel.app",
   },
   {
-    image: "/aboutimg.png",
+    image: "/about-image.png",
     title: "Projeto 2",
     icons: ["uil", "uil-figma"],
     tags: ["React", "TypeScript", "UX/UI Design"],
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     projectLink: "https://gerenciador-tarefas.vercel.app",
   },
   {
-    image: "/aboutimg.png",
+    image: "/about-image.png",
     title: "Projeto 3",
     icons: ["uil", "uil-node-js"],
     tags: ["Node.js", "Express", "MongoDB", "REST API"],
@@ -40,7 +40,7 @@ export const projects: Project[] = [
     projectLink: "https://gerenciador-tarefas.vercel.app",
   },
   {
-    image: "/aboutimg.png",
+    image: "/about-image.png",
     title: "Projeto 4",
     icons: ["uil", "uil-shopping-cart"],
     tags: ["Next.js", "Stripe", "PostgreSQL", "Prisma"],
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     projectLink: "https://ecommerce.vercel.app",
   },
   {
-    image: "/aboutimg.png",
+    image: "/about-image.png",
     title: "Projeto 5",
     icons: ["uil", "uil-chart-line"],
     tags: ["React", "D3.js", "WebSocket", "Chart.js"],
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     projectLink: "https://gerenciador-tarefas.vercel.app",
   },
   {
-    image: "/aboutimg.png",
+    image: "/about-image.png",
     title: "Projeto 6",
     icons: ["uil", "uil-chart-line"],
     tags: ["React", "D3.js", "WebSocket", "Chart.js"],

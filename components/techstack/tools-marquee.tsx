@@ -77,44 +77,68 @@ export function Marquee({
 
 // Tools data
 const TOOLS_SVG_DATA = [
-  { name: "Figma", url: "/figma.svg" },
-  { name: "React", url: "/react.svg" },
-  { name: "TypeScript", url: "/typescript.svg" },
-  { name: "Next", url: "/next.svg" },
-  { name: "Tailwind", url: "/tailwind.svg" },
-  { name: "Node.js", url: "/node.svg" },
-  { name: "Git", url: "/git.svg" },
-  { name: "GitHub", url: "/github.svg" },
-  { name: "PostgreSQL", url: "/pgsql.svg" },
-  { name: "Insomnia", url: "/insomnia.svg" },
-  { name: "Jest", url: "/jest.svg" },
+  { name: "Figma", url: "/figma.svg", link: "https://www.figma.com/" },
+  { name: "React", url: "/react.svg", link: "https://react.dev/" },
+  {
+    name: "TypeScript",
+    url: "/typescript.svg",
+    link: "https://www.typescriptlang.org/",
+  },
+  { name: "Next.js", url: "/next.svg", link: "https://nextjs.org/" },
+  {
+    name: "Tailwind CSS",
+    url: "/tailwind.svg",
+    link: "https://tailwindcss.com/",
+  },
+  { name: "Node.js", url: "/node.svg", link: "https://nodejs.org/" },
+  { name: "Git", url: "/git.svg", link: "https://git-scm.com/" },
+  { name: "GitHub", url: "/github.svg", link: "https://github.com/" },
+  {
+    name: "PostgreSQL",
+    url: "/pgsql.svg",
+    link: "https://www.postgresql.org/",
+  },
+  { name: "Insomnia", url: "/insomnia.svg", link: "https://insomnia.rest/" },
+  { name: "Jest", url: "/jest.svg", link: "https://jestjs.io/" },
 ];
 
 const firstRow = TOOLS_SVG_DATA.slice(0, Math.ceil(TOOLS_SVG_DATA.length / 2));
 const secondRow = TOOLS_SVG_DATA.slice(Math.ceil(TOOLS_SVG_DATA.length / 2));
 
-const ToolCard = ({ name, url }: { name: string; url: string }) => {
+interface ToolCardProps {
+  name: string;
+  url: string;
+  link: string;
+}
+
+const ToolCard = ({ name, url, link }: ToolCardProps) => {
   return (
-    <figure
-      className={cn(
-        "relative h-full w-32 cursor-pointer overflow-hidden rounded-xl border p-4",
-        // dark styles
-        "dark:border-zinc-50/[.1] dark:bg-zinc-50/[.10] dark:hover:bg-zinc-50/[.15]"
-      )}
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Visitar a página de ${name}`}
     >
-      <div className="flex flex-col items-center justify-center gap-3 h-full">
-        <Image
-          src={url}
-          alt={`${name} icon`}
-          width={40}
-          height={40}
-          className="object-contain"
-        />
-        <figcaption className="text-sm font-medium dark:text-white text-center">
-          {name}
-        </figcaption>
-      </div>
-    </figure>
+      <figure
+        className={cn(
+          "relative h-full w-32 cursor-pointer overflow-hidden rounded-xl border p-4",
+          "bg-primary/80 hover:bg-primary"
+        )}
+      >
+        <div className="flex flex-col items-center justify-center gap-3 h-full">
+          <Image
+            src={url}
+            alt={`${name} icon`}
+            width={40}
+            height={40}
+            className="object-contain"
+          />
+          <figcaption className="text-sm font-medium text-black text-center">
+            {name}
+          </figcaption>
+        </div>
+      </figure>
+    </a>
   );
 };
 

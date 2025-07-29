@@ -1,6 +1,7 @@
-"use client";
-
 import Image from "next/image";
+
+import { Badge } from "./ui/badge";
+import { PurpleGlowEffect } from "./ui/purple-glow-effect";
 
 import { MaxWidthWrapper } from "./max-width-wrapper";
 
@@ -11,14 +12,10 @@ export default function AboutMe() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           {/* Image Section */}
           <div className="w-full md:w-1/2 flex justify-center md:justify-start relative">
-            {/* Purple Glow Effect */}
-            <div
-              className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-[285px] h-[53px] bg-purple-600 rounded-full blur-[40px] z-20"
-              aria-hidden="true"
-            />
+            <PurpleGlowEffect />
 
             <Image
-              src="/aboutimg.png"
+              src="/about-image.png"
               alt="About me illustration"
               width={500}
               height={500}
@@ -28,15 +25,9 @@ export default function AboutMe() {
 
           {/* Content Section */}
           <div className="w-full md:w-1/2 space-y-6">
-            <div className="inline-flex items-center gap-x-2 rounded-lg border px-3 py-1 text-sm font-medium mb-4">
-              <span className="relative flex h-2 w-2">
-                <span className="relative block h-2 w-2 rounded-full bg-purple-100" />
-              </span>
+            <Badge>About me</Badge>
 
-              <span className="inline font-mono">About me</span>
-            </div>
-
-            <h3 className="font-light bg-gradient-to-r from-purple-100 to-purple-400 text-transparent bg-clip-text">
+            <h3 className="font-light tracking-tighter text-shadow-2xs bg-gradient-to-r from-purple-100 to-purple-400 text-transparent bg-clip-text">
               Lorem ipsum dolor sit amet
             </h3>
 

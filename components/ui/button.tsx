@@ -21,7 +21,8 @@ const buttonVariants = cva(
         primary:
           "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
         secondary:
-          "bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-colors duration-200 text-white",
+          "backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-colors duration-200 text-white",
+        violet: "bg-violet-600 text-white hover:bg-violet-700 hover:shadow-xl",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

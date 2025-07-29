@@ -7,6 +7,7 @@ import { ProjectModal } from "./project-modal";
 import { ProjectCard, projects } from "./project-card";
 
 import { MaxWidthWrapper } from "../max-width-wrapper";
+import { Badge } from "../ui/badge";
 
 export default function Projects() {
   const [activeModalIndex, setActiveModalIndex] = useState<number | null>(null);
@@ -27,11 +28,13 @@ export default function Projects() {
     <section className="py-16 sm:py-20 md:py-24" id="projects">
       <MaxWidthWrapper>
         <div className="space-y-6">
-          <h2 className="text-center text-2xl font-medium text-white sm:text-3xl md:text-4xl">
-            Projects
-          </h2>
+          <div className="text-center">
+            <Badge>Projects</Badge>
+          </div>
 
-          <h3 className="font-light text-center">Lorem ipsum dolor sit amet</h3>
+          <h3 className="font-light text-center tracking-tighter">
+            Lorem ipsum dolor sit amet
+          </h3>
 
           <div className="mt-16">
             <Carousel items={carouselItems} />

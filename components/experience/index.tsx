@@ -2,6 +2,8 @@
 
 import { Work, Education } from "@/types";
 
+import { Badge } from "../ui/badge";
+
 import { Timeline } from "./timeline";
 import { CategoryTabs } from "./category-tabs";
 import { ViewAllButton } from "./view-all-button";
@@ -79,7 +81,9 @@ export default function Experience({
   return (
     <section className="py-16 sm:py-20 md:py-24" id="experience">
       <MaxWidthWrapper>
-        <h2 className="text-4xl text-center mb-8 text-white">Experience</h2>
+        <div className="text-center">
+          <Badge>Experience</Badge>
+        </div>
 
         <CategoryTabs
           categories={categories}

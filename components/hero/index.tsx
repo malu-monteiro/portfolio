@@ -8,6 +8,7 @@ import { MaxWidthWrapper } from "../max-width-wrapper";
 import { ParticlesBackground } from "./particles-background";
 
 import { Button } from "../ui/button";
+import { Badge } from "../ui/badge";
 
 export default function Hero() {
   return (
@@ -27,22 +28,16 @@ export default function Hero() {
           <div className="relative w-full z-10">
             <MaxWidthWrapper>
               <div className="mx-auto lg:ml-0 lg:max-w-3xl space-y-6">
-                {/* Status Badge */}
-                <div className="inline-flex items-center gap-x-2 rounded-lg border px-3 py-1 text-sm font-medium">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-                    <span className="relative block h-2 w-2 rounded-full bg-green-400" />
-                  </span>
-                  <span className="inline font-mono">Available for work!</span>
-                </div>
+                <Badge variant="status">Available for work!</Badge>
 
                 {/* Title */}
-                <h1 className="text-left font-extrabold">
+                <h1 className="text-left font-extrabold tracking-tighter">
                   Maria Luiza
                   <br />
-                  <span className="whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-purple-100 to-purple-400">
-                    Full Stack Developer
+                  <span className="whitespace-nowrap text-shadow-2xs text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-purple-400">
+                    Full Stack{" "}
                   </span>
+                  <span>Developer </span>
                 </h1>
 
                 {/* Content */}
@@ -60,7 +55,7 @@ export default function Hero() {
                     variant="primary"
                     className="w-full sm:w-auto"
                   >
-                    <Link href="#contact">Contact me</Link>
+                    <Link href="#cv">Download CV</Link>
                   </Button>
 
                   <Button
@@ -69,7 +64,7 @@ export default function Hero() {
                     variant="secondary"
                     className="w-full sm:w-auto"
                   >
-                    <Link href="#cv">Download CV</Link>
+                    <Link href="#contact">Contact me</Link>
                   </Button>
                 </div>
               </div>
