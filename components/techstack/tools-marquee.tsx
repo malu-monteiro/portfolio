@@ -122,7 +122,7 @@ const ToolCard = ({ name, url, link }: ToolCardProps) => {
       <figure
         className={cn(
           "relative h-full w-32 cursor-pointer overflow-hidden rounded-xl border p-4",
-          "bg-primary/80 hover:bg-primary"
+          "bg-primary hover:bg-primary/80"
         )}
       >
         <div className="flex flex-col items-center justify-center gap-3 h-full">
