@@ -1,16 +1,17 @@
-"use client";
-
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
 import Navbar from "../navbar";
 import { PinkBackground } from "./pink-background";
 import { MaxWidthWrapper } from "../max-width-wrapper";
 import { ParticlesBackground } from "./particles-background";
 
-import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
 
-export default function Hero() {
+export default async function Hero() {
+  const t = await getTranslations("Hero");
+
   return (
     <>
       <Navbar />
@@ -21,30 +22,29 @@ export default function Hero() {
           id="home"
         >
           <PinkBackground />
-
           <ParticlesBackground />
 
           {/* Main Content */}
           <div className="relative w-full z-10">
             <MaxWidthWrapper>
               <div className="mx-auto lg:ml-0 lg:max-w-3xl space-y-6">
-                <Badge variant="status">Available for work!</Badge>
+                <Badge variant="status">{t("badge")}</Badge>
 
                 {/* Title */}
                 <h1 className="text-left font-extrabold tracking-tighter">
-                  Maria Luiza
-                  <br />
-                  <span className="whitespace-nowrap text-shadow-2xs text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-purple-400">
-                    Full Stack{" "}
-                  </span>
-                  <span>Developer </span>
+                  {t.rich("title", {
+                    br: () => <br />,
+                    gradient: (chunks) => (
+                      <span className="whitespace-nowrap text-shadow-2xs text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-purple-400">
+                        {chunks}
+                      </span>
+                    ),
+                  })}
                 </h1>
 
                 {/* Content */}
                 <p className="max-w-2xl text-left text-base sm:text-lg md:text-xl text-white/70 leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Pellentesque volutpat et mauris vel consequat. Suspendisse
-                  risus neque, porta et massa at, ultrices sollicitudin nulla.
+                  {t("description")}
                 </p>
 
                 {/* CTAs */}
@@ -55,16 +55,7 @@ export default function Hero() {
                     variant="primary"
                     className="w-full sm:w-auto"
                   >
-                    <Link href="#cv">Download CV</Link>
-                  </Button>
-
-                  <Button
-                    asChild
-                    size="hero"
-                    variant="secondary"
-                    className="w-full sm:w-auto"
-                  >
-                    <Link href="#contact">Contact me</Link>
+                    <Link href="#contact">{t("cta.contact")}</Link>
                   </Button>
                 </div>
               </div>

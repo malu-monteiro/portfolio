@@ -1,11 +1,20 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
 import { Badge } from "./ui/badge";
 import { PurpleGlowEffect } from "./ui/purple-glow-effect";
 
 import { MaxWidthWrapper } from "./max-width-wrapper";
 
-export default function AboutMe() {
+export default async function AboutMe() {
+  const t = await getTranslations("AboutMe");
+  const paragraphKeys = [
+    "paragraph1",
+    "paragraph2",
+    "paragraph3",
+    "paragraph4",
+  ] as const;
+
   return (
     <section className="py-16 sm:py-20 md:py-24" id="about">
       <MaxWidthWrapper>
@@ -13,10 +22,9 @@ export default function AboutMe() {
           {/* Image Section */}
           <div className="w-full md:w-1/2 flex justify-center md:justify-start relative">
             <PurpleGlowEffect />
-
             <Image
               src="/about-image.png"
-              alt="About me illustration"
+              alt={t("image_alt")}
               width={500}
               height={500}
               className="max-w-full h-auto object-contain relative z-10"
@@ -25,34 +33,18 @@ export default function AboutMe() {
 
           {/* Content Section */}
           <div className="w-full md:w-1/2 space-y-6">
-            <Badge>About me</Badge>
+            <Badge>{t("badge")}</Badge>
 
-            <h3 className="font-light tracking-tighter text-shadow-2xs bg-gradient-to-r from-purple-100 to-purple-400 text-transparent bg-clip-text">
-              Lorem ipsum dolor sit amet
-            </h3>
+            <h2 className="font-light tracking-tighter text-shadow-2xs bg-gradient-to-r from-purple-100 to-purple-400 text-transparent bg-clip-text">
+              {t("title")}
+            </h2>
 
             <div className="space-y-4">
-              <p>
-                Quisque condimentum vestibulum urna eget dapibus. In molestie,
-                augue sed commodo tristique, sem lorem viverra ex, nec efficitur
-                neque sapien ac nisl.
-              </p>
-
-              <p>
-                Nam condimentum arcu vitae libero efficitur mattis. Fusce
-                sodales sem quis nisi tincidunt, sit amet commodo nisi rhoncus.
-              </p>
-
-              <p>
-                Etiam lacinia in dui et ultricies. Class aptent taciti sociosqu
-                ad litora torquent per conubia nostra, per inceptos himenaeos.
-                Morbi ac tincidunt arcu.
-              </p>
-
-              <p>
-                Vestibulum non convallis enim, vel sollicitudin leo. Duis
-                hendrerit eros vel elementum hendrerit.
-              </p>
+              {paragraphKeys.map((key) => (
+                <p key={key} className="text-white/80 leading-relaxed">
+                  {t(key)}
+                </p>
+              ))}
             </div>
           </div>
         </div>

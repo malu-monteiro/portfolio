@@ -1,26 +1,53 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 
 import { Work, Education } from "@/types";
 
-export const useExperience = (workData: Work[], educationData: Education[]) => {
+interface CategoryTranslations {
+  work: string;
+  education: string;
+}
+
+export const useExperience = (
+  workData: Work[],
+  educationData: Education[],
+  categoryTranslations?: CategoryTranslations
+) => {
   const works = useMemo(() => [...workData].reverse(), [workData]);
   const educations = useMemo(
     () => [...educationData].reverse(),
     [educationData]
   );
 
-  const categories = ["Work", "Education"];
+  const categories = useMemo(
+    () => [
+      categoryTranslations?.work || "Work",
+      categoryTranslations?.education || "Education",
+    ],
+    [categoryTranslations]
+  );
+
   const [activeCategory, setActiveCategory] = useState(categories[0]);
   const [viewAll, setViewAll] = useState(false);
 
-  const filteredItems = useMemo(() => {
-    return activeCategory === "Education" ? educations : works;
-  }, [activeCategory, works, educations]);
+  useEffect(() => {
+    if (categories.length > 0 && !categories.includes(activeCategory)) {
+      setActiveCategory(categories[0]);
+    }
+  }, [categories, activeCategory]);
 
-  const currentType: "work" | "education" =
-    activeCategory === "Work" ? "work" : "education";
+  const filteredItems = useMemo(() => {
+    const isEducation = activeCategory === categories[1];
+
+    return isEducation ? educations : works;
+  }, [activeCategory, works, educations, categories]);
+
+  const currentType: "work" | "education" = useMemo(() => {
+    const isEducation = activeCategory === categories[1];
+    return isEducation ? "education" : "work";
+  }, [activeCategory, categories]);
 
   const filterByCategory = useCallback((category: string) => {
+    console.log("Filtering by category:", category);
     setActiveCategory(category);
     setViewAll(false);
   }, []);

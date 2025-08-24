@@ -1,24 +1,26 @@
 "use client";
 
 import { useState, useCallback } from "react";
-
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 import { Logo } from "./ui/logo";
 import { MaxWidthWrapper } from "./max-width-wrapper";
+import { LanguageSwitcher } from "./language-switcher";
 
 import { Menu, X } from "lucide-react";
 
-const menuItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
-  { name: "Contact", href: "#contact" },
-] as const;
-
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const t = useTranslations("Navbar");
+
+  const menuItems = [
+    { name: t("home"), href: "#home" },
+    { name: t("about"), href: "#about" },
+    { name: t("projects"), href: "#projects" },
+    { name: t("experience"), href: "#experience" },
+    { name: t("contact"), href: "#contact" },
+  ] as const;
 
   const toggleMenu = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
@@ -30,11 +32,11 @@ export default function Navbar() {
 
   return (
     <header className="bg-background/50 fixed z-20 w-full backdrop-blur-3xl">
-      <nav data-state={isMenuOpen ? "active" : ""}>
-        <MaxWidthWrapper className="transition-all duration-300">
+      <nav>
+        <MaxWidthWrapper>
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 border-b lg:gap-0 lg:py-4">
-            {/* MaxWidthWrapper Logo + Nav Desktop + Mobile Button */}
-            <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
+            {/* Seção Esquerda: Logo */}
+            <div className="relative z-20 flex w-full justify-between lg:w-auto">
               <Link
                 href="/"
                 aria-label="Home"
@@ -43,62 +45,48 @@ export default function Navbar() {
                 <Logo />
               </Link>
 
+              {/* Botão do Menu Mobile */}
               <button
                 onClick={toggleMenu}
                 aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-                className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent"
+                className="relative -mr-1 p-1 lg:hidden"
               >
                 <Menu
-                  className={`m-auto size-6 duration-200 ${
-                    isMenuOpen ? "rotate-180 scale-0 opacity-0" : ""
+                  className={`m-auto size-6 transition-transform duration-300 ${
+                    isMenuOpen ? "rotate-90 scale-0 opacity-0" : ""
                   }`}
                 />
                 <X
-                  className={`absolute inset-0 m-auto size-6 duration-200 ${
-                    isMenuOpen
-                      ? "rotate-0 scale-100 opacity-100"
-                      : "-rotate-180 scale-0 opacity-0"
+                  className={`absolute inset-0 m-auto size-6 transition-transform duration-300 ${
+                    isMenuOpen ? "" : "-rotate-90 scale-0 opacity-0"
                   }`}
                 />
               </button>
-
-              {/* Navigation Desktop */}
-              <div className="hidden lg:block">
-                <ul className="flex gap-8 text-sm">
-                  {menuItems.map((item, index) => (
-                    <li key={index}>
-                      <Link
-                        href={item.href}
-                        className="text-muted-foreground hover:text-accent-foreground block duration-200 transition-colors"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
 
-            {/* Menu Mobile */}
+            {/* Seção Direita: Itens do Menu (Desktop e Mobile) */}
             <div
-              className={`bg-background mb-6 w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none ${
-                isMenuOpen ? "block lg:flex" : "hidden lg:flex"
+              className={`w-full lg:w-auto lg:flex ${
+                isMenuOpen ? "block" : "hidden"
               }`}
             >
-              <div className="lg:hidden">
-                <ul className="space-y-6 text-base">
-                  {menuItems.map((item, index) => (
-                    <li key={index}>
-                      <Link
-                        href={item.href}
-                        onClick={closeMenu}
-                        className="text-muted-foreground hover:text-accent-foreground block duration-200 transition-colors"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+              <ul className="flex flex-col gap-6 text-base lg:flex-row lg:items-center lg:gap-8 lg:text-sm">
+                {menuItems.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      onClick={closeMenu}
+                      className="text-muted-foreground hover:text-accent-foreground block duration-200 transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Divisor e Seletor de Idioma */}
+              <div className="mt-6 flex items-center border-t border-zinc-700 pt-6 lg:mt-0 lg:border-none lg:pt-0 lg:ml-8">
+                <LanguageSwitcher />
               </div>
             </div>
           </div>

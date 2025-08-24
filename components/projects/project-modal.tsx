@@ -8,6 +8,7 @@ interface ProjectModalProps {
   title: string;
   description: string;
   projectLink?: string | null;
+  buttonText: string;
 }
 
 export function ProjectModal({
@@ -16,6 +17,7 @@ export function ProjectModal({
   title,
   description,
   projectLink,
+  buttonText,
 }: ProjectModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -68,7 +70,7 @@ export function ProjectModal({
 
         <p className="mb-6 leading-relaxed text-gray-300">{description}</p>
 
-        {projectLink && <Button variant="primary">View on GitHub</Button>}
+        {projectLink && <Button variant="primary">{buttonText}</Button>}
       </div>
     </div>
   );

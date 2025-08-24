@@ -1,82 +1,64 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
 import { MaxWidthWrapper } from "./max-width-wrapper";
 
 import { FaBehance, FaGithub, FaLinkedin } from "react-icons/fa";
 
+type Link = {
+  name: string;
+  href: string;
+};
+
+type SocialLinkLabel = {
+  label: string;
+};
+
+type LogoData = {
+  alt: string;
+  title: string;
+};
+
+type NavigationData = {
+  title: string;
+  links: Link[];
+};
+
 interface FooterProps {
   logo?: {
     url: string;
     src: string;
-    alt: string;
-    title: string;
   };
-  sections?: Array<{
-    title: string;
-    links: Array<{ name: string; href: string }>;
-  }>;
-  description?: string;
-  socialLinks?: Array<{
-    icon: React.ReactElement;
-    href: string;
-    label: string;
-  }>;
-  copyright?: string;
-  legalLinks?: Array<{
-    name: string;
-    href: string;
-  }>;
 }
 
-const defaultSections = [
-  {
-    title: "Navegação",
-    links: [
-      { name: "Home", href: "#" },
-      { name: "About", href: "#about" },
-      { name: "Projects", href: "#projects" },
-      { name: "Experience", href: "#experience" },
-      { name: "Contact", href: "#contact" },
-    ],
-  },
-];
-
-const defaultSocialLinks = [
+const socialLinksData = [
   {
     icon: <FaLinkedin className="size-5" />,
     href: "https://www.linkedin.com/in/m-monteiro/",
-    label: "LinkedIn",
   },
   {
     icon: <FaGithub className="size-5" />,
     href: "https://github.com/malu-monteiro",
-    label: "GitHub",
   },
   {
     icon: <FaBehance className="size-5" />,
     href: "https://www.behance.net/malu-monteiro",
-    label: "Behance",
   },
 ];
 
-const defaultLegalLinks = [
-  { name: "Terms and Conditions", href: "#" },
-  { name: "Privacy Policy", href: "#" },
-];
-
-export const Footer = ({
+export const Footer = async ({
   logo = {
     url: "https://github.com/malu-monteiro",
     src: "/logo.svg",
-    alt: "logo",
-    title: "malu-monteiro",
   },
-  sections = defaultSections,
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed interdum urna, id faucibus sapien. ",
-  socialLinks = defaultSocialLinks,
-  copyright = "© 2025 Maria Luiza Monteiro. All rights reserved.",
-  legalLinks = defaultLegalLinks,
 }: FooterProps) => {
+  const t = await getTranslations("Footer");
+
+  const logoData = t.raw("logo") as LogoData;
+  const navigationData = t.raw("navigation") as NavigationData;
+  const socialLinksLabels = t.raw("socialLinks") as SocialLinkLabel[];
+  const legalLinksData = t.raw("legalLinks") as Link[];
+
   return (
     <section className="py-32">
       <MaxWidthWrapper>
@@ -88,26 +70,26 @@ export const Footer = ({
                 <a href={logo.url}>
                   <Image
                     src={logo.src}
-                    alt={logo.alt}
-                    title={logo.title}
+                    alt={logoData.alt}
+                    title={logoData.title}
                     width={40}
                     height={40}
                   />
                 </a>
 
-                <h2 className="text-xl font-semibold">{logo.title}</h2>
+                <h2 className="text-xl font-semibold">{logoData.title}</h2>
               </div>
 
               <p className="max-w-[70%] text-sm text-muted-foreground">
-                {description}
+                {t("description")}
               </p>
 
               <ul className="flex items-center space-x-6 text-muted-foreground">
-                {socialLinks.map((social, idx) => (
+                {socialLinksData.map((social, idx) => (
                   <li key={idx} className="font-medium hover:text-primary">
                     <a
                       href={social.href}
-                      aria-label={social.label}
+                      aria-label={socialLinksLabels[idx].label}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -118,26 +100,24 @@ export const Footer = ({
               </ul>
             </div>
 
-            {/* Navigation Sections */}
+            {/* Navigation Section */}
             <div className="flex w-full justify-start lg:justify-end">
-              {sections.map((section, sectionIdx) => (
-                <div key={sectionIdx}>
-                  <h3 className="mb-4 text-base font-bold leading-relaxed text-white sm:text-lg">
-                    {section.title}
-                  </h3>
+              <div>
+                <h3 className="mb-4 text-base font-bold leading-relaxed text-white sm:text-lg">
+                  {navigationData.title}
+                </h3>
 
-                  <ul className="space-y-3 text-sm text-muted-foreground">
-                    {section.links.map((link, linkIdx) => (
-                      <li
-                        key={linkIdx}
-                        className="font-medium hover:text-primary"
-                      >
-                        <a href={link.href}>{link.name}</a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+                <ul className="space-y-3 text-sm text-muted-foreground">
+                  {navigationData.links.map((link, linkIdx) => (
+                    <li
+                      key={linkIdx}
+                      className="font-medium hover:text-primary"
+                    >
+                      <a href={link.href}>{link.name}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -148,11 +128,11 @@ export const Footer = ({
 
           {/* Footer Bottom */}
           <div className="flex flex-col justify-between gap-4 py-8 text-xs font-medium text-muted-foreground md:flex-row md:items-center md:text-left">
-            <p className="order-2 lg:order-1">{copyright}</p>
+            <p className="order-2 lg:order-1">{t("copyright")}</p>
             <ul className="order-1 flex flex-col gap-2 md:order-2 md:flex-row">
-              {legalLinks.map((link, idx) => (
+              {legalLinksData.map((link, idx) => (
                 <li key={idx} className="hover:text-primary">
-                  <a href={link.href}> {link.name}</a>
+                  <a href={link.href}>{link.name}</a>
                 </li>
               ))}
             </ul>

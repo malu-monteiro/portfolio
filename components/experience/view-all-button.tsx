@@ -5,9 +5,16 @@ import { cn } from "../../lib/utils";
 interface ViewAllButtonProps {
   isExpanded: boolean;
   onClick: () => void;
+  viewAllText: string;
+  gotItText: string;
 }
 
-export const ViewAllButton = ({ isExpanded, onClick }: ViewAllButtonProps) => {
+export const ViewAllButton = ({
+  isExpanded,
+  onClick,
+  viewAllText,
+  gotItText,
+}: ViewAllButtonProps) => {
   return (
     <div className="text-center mt-8">
       <Button
@@ -17,7 +24,7 @@ export const ViewAllButton = ({ isExpanded, onClick }: ViewAllButtonProps) => {
           "animate-bounce": !isExpanded,
         })}
       >
-        {isExpanded ? "Okay, I got it" : "View All"}
+        {isExpanded ? gotItText : viewAllText}
       </Button>
     </div>
   );

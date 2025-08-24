@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import { Work, Education } from "@/types";
 
 import { Badge } from "../ui/badge";
@@ -11,56 +13,23 @@ import { MaxWidthWrapper } from "../max-width-wrapper";
 
 import { useExperience } from "@/hooks/useExperience";
 
-const defaultWorkData: Work[] = [
-  {
-    company: "Lorem Ipsum",
-    position: "Lorem Ipsum",
-    duration: "Jul 2023 - Aug 2024",
-    desc: ["Lorem Ipsum", "Lorem Ipsum"],
-  },
-  {
-    company: "Lorem Ipsum",
-    position: "Lorem Ipsum",
-    duration: "Jul 2023 - Aug 2024",
-    desc: ["Lorem Ipsum", "Lorem Ipsum"],
-  },
-  {
-    company: "Lorem Ipsum",
-    position: "Lorem Ipsum",
-    duration: "Jul 2023 - Aug 2024",
-    desc: ["Lorem Ipsum", "Lorem Ipsum"],
-  },
-];
-const defaultEducationData: Education[] = [
-  {
-    institute: "Lorem Ipsum",
-    degree: "Lorem Ipsum",
-    duration: "2019 - 2023",
-    desc: ["Lorem Ipsum"],
-  },
-  {
-    institute: "Lorem Ipsum",
-    degree: "Lorem Ipsum",
-    duration: "2019 - 2023",
-    desc: ["Lorem Ipsum"],
-  },
-  {
-    institute: "Lorem Ipsum",
-    degree: "Lorem Ipsum",
-    duration: "2019 - 2023",
-    desc: ["Lorem Ipsum"],
-  },
-];
-
 interface Props {
   workData?: Work[];
   educationData?: Education[];
 }
 
-export default function Experience({
-  workData = defaultWorkData,
-  educationData = defaultEducationData,
-}: Props) {
+export default function Experience({ workData, educationData }: Props) {
+  const t = useTranslations("Experience");
+
+  const defaultWorkData: Work[] = workData || (t.raw("work") as Work[]);
+  const defaultEducationData: Education[] =
+    educationData || (t.raw("education") as Education[]);
+
+  const categoryTranslations = {
+    work: t("workButton"),
+    education: t("educationButton"),
+  };
+
   const {
     filteredItems,
     currentType,
@@ -71,7 +40,11 @@ export default function Experience({
     filterByCategory,
     setViewAll,
     scrollToTop,
-  } = useExperience(workData, educationData);
+  } = useExperience(
+    defaultWorkData,
+    defaultEducationData,
+    categoryTranslations
+  );
 
   const handleViewAllClick = () => {
     setViewAll(!viewAll);
@@ -82,7 +55,7 @@ export default function Experience({
     <section className="py-16 sm:py-20 md:py-24" id="experience">
       <MaxWidthWrapper>
         <div className="text-center">
-          <Badge>Experience</Badge>
+          <Badge>{t("badge")}</Badge>
         </div>
 
         <CategoryTabs
@@ -98,7 +71,12 @@ export default function Experience({
         />
 
         {hasMoreItems && (
-          <ViewAllButton isExpanded={viewAll} onClick={handleViewAllClick} />
+          <ViewAllButton
+            isExpanded={viewAll}
+            onClick={handleViewAllClick}
+            viewAllText={t("viewAllButton")}
+            gotItText={t("gotItButton")}
+          />
         )}
       </MaxWidthWrapper>
     </section>

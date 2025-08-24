@@ -1,0 +1,179 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "badge": "Available for work!",
+    "title": "Maria Luiza<br></br><gradient>Full Stack</gradient> Developer",
+    "description": "I'm a developer passionate about creating amazing digital experiences. I specialize in building robust and scalable applications with modern technologies.",
+    "cta": {
+      "cv": "Download CV",
+      "contact": "Contact me"
+    }
+  },
+  "AboutMe": {
+    "badge": "About me",
+    "image_alt": "Illustration of a woman sitting at a computer, programming",
+    "title": "A little more about my journey",
+    "paragraph1": "I began my programming journey in 2020, and since then, I've had the opportunity to work on challenging projects that have solidified my skills.",
+    "paragraph2": "I have experience with both front-end and back-end, allowing me to build complete and integrated solutions, from the user interface to the database architecture.",
+    "paragraph3": "My goal is always to write clean, efficient, and maintainable code, following the best market practices.",
+    "paragraph4": "In my free time, when I’m not exploring new technologies, I enjoy watching basketball games while having a good cup of coffee."
+  },
+  "TechStack": {
+    "badge": "Technology Stack",
+    "title": "Some of my favourite tools"
+  },
+  "Projects": {
+    "badge": "Projects",
+    "title": "Some of my recent work",
+    "github": "View on GitHub",
+    "viewDetails": "View Details",
+    "items": [
+      {
+        "title": "Admin Panel Frontend",
+        "description": "A web platform for online service scheduling where any user can book a service, while an administrator manages all services and schedule blocks through a secure admin panel. Built with React, providing a modern interface and seamless user experience."
+      },
+      {
+        "title": "Admin Panel Backend",
+        "description": "Backend system for the admin panel and online service scheduling platform. Developed with Node.js, Fastify, and Prisma, featuring authentication, scheduling logic, and data management with a focus on performance and security."
+      },
+      {
+        "title": "Automotive Detailing Business Website",
+        "description": "This project is a modern and responsive website for an automotive detailing business, focused on presenting services and quality in a visually appealing way. Developed with Next.js for high performance and SEO, and styled with TailwindCSS for agile and consistent development."
+      }
+    ]
+  },
+  "Experience": {
+    "badge": "Experience",
+    "workTitle": "Work",
+    "educationTitle": "Education",
+    "workButton": "Work",
+    "educationButton": "Education",
+    "viewAllButton": "View All",
+    "gotItButton": "Okay, I got it!",
+    "work": [
+      {
+        "company": "Senff",
+        "position": "Apprentice",
+        "duration": "Oct 2018 - May 2019"
+      },
+      {
+        "company": "Senff",
+        "position": "Administrative Assistant",
+        "duration": "Jun 2019 - Oct 2021",
+        "desc": [
+          "Managed corporate client onboarding, ensuring data accuracy and maintaining up-to-date records for a seamless integration.",
+          "Produced weekly operational reports to support decision-making and improvements in Service Level Agreements (SLAs).",
+          "Optimized processes by creating technical documentation and implementing system improvements, resulting in task automation and a 95% increase in team productivity."
+        ]
+      },
+      {
+        "company": "Solo Network",
+        "position": "NOC Intern",
+        "duration": "Sep 2022 - Jun 2023",
+        "desc": [
+          "Monitored network infrastructure and systems, including servers, firewalls, routers, and Kubernetes.",
+          "Maintained detailed incident logs for tracking and timely resolution."
+        ]
+      },
+      {
+        "company": "MSS_Studio Car",
+        "position": "Freelancer",
+        "duration": "Jun 2024 - Jun 2025",
+        "desc": [
+          "Developed a complete web platform for an automotive detailing business using React, Vite, and Tailwind CSS, automating client scheduling and eliminating frequently asked questions, which were reduced by 100%."
+        ]
+      },
+      {
+        "company": "Agroger",
+        "position": "Junior Full Stack Developer",
+        "duration": "Aug 2025 - Present",
+        "desc": [
+          "Developing new features, prototyping interfaces in Figma, and fixing bugs with a focus on improving user experience and increasing user satisfaction."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institute": "Google",
+        "degree": "Foundations of Cybersecurity",
+        "duration": "2023"
+      },
+      {
+        "institute": "UNIFAEL",
+        "degree": "Technical Degree in Systems Development",
+        "duration": "2021 - 2024",
+        "desc": [
+          "Focused on software development, databases, systems analysis, and web technologies.",
+          "Final project: Developed a medical triage system for emergency care units. The system helps prioritize patients based on severity, automates risk classification, generates QR Codes for real-time tracking, and optimizes emergency care workflows. Features include patient registration, data updates, risk classification, and administrative management."
+        ]
+      },
+      {
+        "institute": "Academia Europea México",
+        "degree": "Spanish Language Course",
+        "duration": "2024",
+        "desc": [
+          "Successfully completed an intensive Spanish exchange program, achieving basic proficiency and advancing to the next level.",
+          "Gained deep cultural immersion through daily interactions and studies, including daily conversations with native speakers and practice in real-life situations.",
+          "Learned about local customs, traditions, and cultural expressions while developing autonomy, adaptability, and intercultural communication skills, and participated in academic and social activities that strengthened language comprehension in both professional and personal contexts."
+        ]
+      }
+    ]
+  },
+  "Contact": {
+    "badge": "Contact me",
+    "title": "Lets build something amazing together!",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "your_email@example.com"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "What would you like to talk about?"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Leave a message..."
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "submit": "Submit",
+        "submitting": "Sending..."
+      }
+    },
+    "alt": "Receiving a message illustration"
+  },
+  "Footer": {
+    "logo": {
+      "alt": "logo",
+      "title": "malu-monteiro"
+    },
+    "description": "Feel free to connect with me!",
+    "navigation": {
+      "title": "Navigation",
+      "links": [
+        { "name": "Home", "href": "#" },
+        { "name": "About", "href": "#about" },
+        { "name": "Projects", "href": "#projects" },
+        { "name": "Experience", "href": "#experience" },
+        { "name": "Contact", "href": "#contact" }
+      ]
+    },
+    "socialLinks": [
+      { "label": "LinkedIn" },
+      { "label": "GitHub" },
+      { "label": "Behance" }
+    ],
+    "copyright": "© 2025 Maria Luiza Monteiro. All rights reserved.",
+    "legalLinks": [
+      { "name": "Terms and Conditions" },
+      { "name": "Privacy Policy" }
+    ]
+  }
+}

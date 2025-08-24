@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import { useActionState, useRef } from "react";
 import { useFormStatus } from "react-dom";
+import { useTranslations } from "next-intl";
 
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 
@@ -17,14 +18,17 @@ import { sendEmail, type FormState } from "@/app/actions";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
+  const t = useTranslations("Contact.form.buttons");
+
   return (
     <Button type="submit" variant="primary" disabled={pending}>
-      {pending ? "Sending..." : "Submit"}
+      {pending ? t("submitting") : t("submit")}
     </Button>
   );
 }
 
 export default function Contact() {
+  const t = useTranslations("Contact");
   const initialState: FormState = { message: "", error: false };
   const [state, formAction] = useActionState(sendEmail, initialState);
   const turnstileRef = useRef<TurnstileInstance>(null);
@@ -42,7 +46,7 @@ export default function Contact() {
             <PurpleGlowEffect />
             <Image
               src="/new-message-contact.svg"
-              alt="About me illustration"
+              alt={t("alt")}
               width={500}
               height={500}
               className="max-w-full h-auto object-contain relative z-10"
@@ -50,10 +54,8 @@ export default function Contact() {
           </div>
 
           <div className="w-full md:w-1/2 space-y-6">
-            <Badge variant="status">Contact me</Badge>
-            <h3 className="font-light tracking-tighter">
-              Lets build something amazing together!
-            </h3>
+            <Badge variant="status">{t("badge")}</Badge>
+            <h2 className="font-light tracking-tighter">{t("title")}</h2>
 
             <form action={handleSubmit} className="space-y-6">
               <div>
@@ -61,16 +63,18 @@ export default function Contact() {
                   htmlFor="email"
                   className="block mb-2 text-sm font-medium text-gray-300"
                 >
-                  Email
+                  {t("form.email.label")}
                 </label>
+
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  className="block w-full p-3 border border-white/20 rounded-lg bg-transparent text-white placeholder-gray-400"
-                  placeholder="your_email@example.com"
+                  className="block w-full p-2 border border-white/20 rounded-lg bg-transparent text-white placeholder-gray-400"
+                  placeholder={t("form.email.placeholder")}
                   required
                 />
+
                 {state.fieldErrors?.email && (
                   <p className="mt-1 text-sm text-red-500">
                     {state.fieldErrors.email[0]}
@@ -83,14 +87,15 @@ export default function Contact() {
                   htmlFor="subject"
                   className="block mb-2 text-sm font-medium text-gray-300"
                 >
-                  Subject
+                  {t("form.subject.label")}
                 </label>
+
                 <input
                   type="text"
                   id="subject"
                   name="subject"
                   className="block w-full p-3 border border-white/20 rounded-lg bg-transparent text-white placeholder-gray-400"
-                  placeholder="What would you like to talk about?"
+                  placeholder={t("form.subject.placeholder")}
                   required
                 />
                 {state.fieldErrors?.subject && (
@@ -105,14 +110,15 @@ export default function Contact() {
                   htmlFor="message"
                   className="block mb-2 text-sm font-medium text-gray-300"
                 >
-                  Message
+                  {t("form.message.label")}
                 </label>
+
                 <textarea
                   id="message"
                   name="message"
                   rows={6}
                   className="block w-full p-3 border border-white/20 rounded-lg bg-transparent text-white placeholder-gray-400"
-                  placeholder="Leave a message..."
+                  placeholder={t("form.message.placeholder")}
                   required
                 />
                 {state.fieldErrors?.message && (
@@ -141,7 +147,7 @@ export default function Contact() {
 
               <div className="flex items-center justify-start gap-4 pt-2">
                 <Button type="reset" variant="secondary">
-                  Cancel
+                  {t("form.buttons.cancel")}
                 </Button>
                 <SubmitButton />
               </div>
@@ -152,7 +158,7 @@ export default function Contact() {
                     state.error ? "text-red-500" : "text-green-500"
                   }`}
                 >
-                  {state.message}
+                  {state.error ? t("form.error") : t("form.success")}
                 </p>
               )}
             </form>

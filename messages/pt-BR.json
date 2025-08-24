@@ -1,0 +1,181 @@
+{
+  "Navbar": {
+    "home": "Início",
+    "about": "Sobre",
+    "projects": "Projetos",
+    "experience": "Experiência",
+    "contact": "Contato"
+  },
+  "Hero": {
+    "badge": "Disponível para trabalho!",
+    "title": "Maria Luiza<br></br><gradient>Full Stack</gradient> Developer",
+    "description": "Sou uma desenvolvedora apaixonada por criar experiências digitais incríveis. Especialista em construir aplicações robustas e escaláveis com tecnologias modernas.",
+    "cta": {
+      "cv": "Baixar CV",
+      "contact": "Entre em contato"
+    }
+  },
+  "AboutMe": {
+    "badge": "Sobre mim",
+    "image_alt": "Ilustração de uma mulher sentada em um computador, programando",
+    "title": "Um pouco mais sobre minha jornada",
+    "paragraph1": "Comecei minha jornada na programação em 2020 e, desde então, tive a oportunidade de trabalhar em projetos desafiadores que solidificaram minhas habilidades.",
+    "paragraph2": "Tenho experiência tanto com front-end quanto com back-end, o que me permite construir soluções completas e integradas, da interface do usuário à arquitetura do banco de dados.",
+    "paragraph3": "Meu objetivo é sempre escrever código limpo, eficiente e de fácil manutenção, seguindo as melhores práticas do mercado.",
+    "paragraph4": "No meu tempo livre, quando não estou explorando novas tecnologias, gosto de assistir a jogos de basquete sempre acompanhada de uma boa xícara de café."
+  },
+  "TechStack": {
+    "badge": "Tecnologias utilizadas",
+    "title": "Algumas das minhas ferramentas favoritas"
+  },
+  "Projects": {
+    "badge": "Projetos",
+    "title": "Alguns dos meus trabalhos recentes",
+    "github": "Ver no GitHub",
+    "viewDetails": "Ver Detalhes",
+    "items": [
+      {
+        "title": "Admin Panel Frontend",
+        "description": "Plataforma web para agendamento de serviços online, onde qualquer usuário pode reservar um horário, enquanto um administrador gerencia serviços e bloqueios de agenda através de um painel protegido. Desenvolvido em React, com foco em interface moderna e experiência do usuário."
+      },
+      {
+        "title": "Admin Panel Backend",
+        "description": "Sistema backend para o painel administrativo e plataforma de agendamento de serviços online. Construído com Node.js, Fastify e Prisma, inclui autenticação, lógica de agendamento e gerenciamento de dados, com foco em performance e segurança."
+      },
+      {
+        "title": "Website Estética Automotiva",
+        "description": "Website moderno e responsivo para uma empresa de estética automotiva, focado em apresentar serviços e qualidade de forma atrativa. Desenvolvido com Next.js para alta performance e SEO, e estilizado com TailwindCSS para um desenvolvimento ágil e consistente."
+      }
+    ]
+  },
+  "Experience": {
+    "badge": "Experiência",
+    "workTitle": "Trabalho",
+    "workButton": "Trabalho",
+    "educationButton": "Educação",
+    "viewAllButton": "Ver Tudo",
+    "gotItButton": "Ok, entendi!",
+    "work": [
+      {
+        "company": "Senff",
+        "position": "Aprendiz",
+        "duration": "out 2018 - mai 2019"
+      },
+      {
+        "company": "Senff",
+        "position": "Assistente administrativo",
+        "duration": "jun 2019 - out 2021",
+        "desc": [
+          "Gerenciamento do onboarding de clientes corporativos, assegurando a precisão dos dados e a manutenção de registros atualizados para uma integração sem falhas.",
+          "Geração de relatórios operacionais semanais para subsidiar a tomada de decisões e melhorias nos acordos de nível de serviço (SLAs).",
+          "Otimização de processos através da elaboração de documentação técnica e implementação de melhorias sistêmicas, resultando na automação de tarefas e em um aumento de 95% na produtividade da equipe."
+        ]
+      },
+      {
+        "company": "Solo Network",
+        "position": "Estágio em NOC",
+        "duration": "set 2022 - jun 2023",
+        "desc": [
+          "Monitorei a infraestrutura de rede e sistemas, incluindo servidores, firewalls, roteadores e Kubernetes.",
+          "Mantive logs detalhados de incidentes para acompanhamento e resolução pontual."
+        ]
+      },
+      {
+        "company": "MSS_Studio Car",
+        "position": "Freelancer",
+        "duration": "jun 2024 - jun 2025",
+        "desc": [
+          "Desenvolvi uma plataforma web completa para uma empresa de estética automotiva, utilizando React, Vite e Tailwind CSS, visando automatizar o agendamento de clientes e eliminar perguntas frequentes, que foram 100% reduzidas."
+        ]
+      },
+      {
+        "company": "Agroger",
+        "position": "Desenvolvedora Full Stack Júnior",
+        "duration": "ago 2025 - o momento",
+        "desc": [
+          "Desenvolvimento de novas features, prototipando interfaces no Figma e corrigindo bugs, com foco em aprimorar a experiência e aumentar a satisfação dos usuários."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institute": "Google",
+        "degree": "Fundamentos de Cibersegurança",
+        "duration": "2023"
+      },
+      {
+        "institute": "UNIFAEL",
+        "degree": "Técnico em Desenvolvimento de Sistemas",
+        "duration": "2021 - 2024",
+        "desc": [
+          "Curso focado em desenvolvimento de software, bancos de dados, análise de sistemas e tecnologias web.",
+          "Trabalho de conclusão de curso: Desenvolvi um sistema de triagem médica para unidades de pronto atendimento. O sistema auxilia na priorização de pacientes conforme a gravidade, automatiza a classificação de risco, gera QR Codes para acompanhamento em tempo real e otimiza o fluxo do atendimento emergencial. Inclui funcionalidades de cadastro de pacientes, atualização de dados, classificação de risco e controle administrativo."
+        ]
+      },
+      {
+        "institute": "Academia Europea México",
+        "degree": "Curso de Idioma Espanhol",
+        "duration": "2024",
+        "desc": [
+          "Concluí com êxito um programa de intercâmbio intensivo de espanhol, atingindo proficiência básica e avançando para o próximo nível.",
+          "Obtive imersão cultural profunda por meio de interações diárias e estudos, incluindo conversação diária com nativos e prática em situações reais do cotidiano.",
+          "Também aprendi sobre costumes, tradições e expressões culturais locais, desenvolvi autonomia, adaptabilidade e habilidades de comunicação intercultural, e participei de atividades acadêmicas e sociais que reforçaram a compreensão da língua em contextos profissionais e pessoais."
+        ]
+      }
+    ]
+  },
+  "Contact": {
+    "badge": "Entre em contato",
+    "title": "Vamos construir algo incrível juntos!",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "seu_email@exemplo.com"
+      },
+      "subject": {
+        "label": "Assunto",
+        "placeholder": "Sobre o que você gostaria de falar?"
+      },
+      "message": {
+        "label": "Mensagem",
+        "placeholder": "Deixe sua mensagem..."
+      },
+      "buttons": {
+        "cancel": "Cancelar",
+        "submit": "Enviar",
+        "submitting": "Enviando..."
+      },
+      "success": "Sua mensagem foi enviada com sucesso!",
+      "error": "Ocorreu um erro ao enviar sua mensagem. Tente novamente."
+    },
+
+    "alt": "Ilustração recebendo uma mensagem"
+  },
+  "Footer": {
+    "logo": {
+      "alt": "logo",
+      "title": "malu-monteiro"
+    },
+    "description": "Sinta-se à vontade para se conectar comigo!",
+    "navigation": {
+      "title": "Navegação",
+      "links": [
+        { "name": "Início", "href": "#" },
+        { "name": "Sobre", "href": "#about" },
+        { "name": "Projetos", "href": "#projects" },
+        { "name": "Experiência", "href": "#experience" },
+        { "name": "Contato", "href": "#contact" }
+      ]
+    },
+    "socialLinks": [
+      { "label": "LinkedIn" },
+      { "label": "GitHub" },
+      { "label": "Behance" }
+    ],
+    "copyright": "© 2025 Maria Luiza Monteiro. Todos os direitos reservados.",
+    "legalLinks": [
+      { "name": "Termos e Condições" },
+      { "name": "Política de Privacidade" }
+    ]
+  }
+}
