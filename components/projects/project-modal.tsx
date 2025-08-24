@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-
 import { Button } from "../ui/button";
 
 interface ProjectModalProps {
@@ -70,7 +69,11 @@ export function ProjectModal({
 
         <p className="mb-6 leading-relaxed text-gray-300">{description}</p>
 
-        {projectLink && <Button variant="primary">{buttonText}</Button>}
+        {projectLink && (
+          <a href={projectLink} target="_blank" rel="noopener noreferrer">
+            <Button variant="primary">{buttonText}</Button>
+          </a>
+        )}
       </div>
     </div>
   );

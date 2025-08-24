@@ -22,7 +22,7 @@ const projectStaticData = [
     image: "/panel-admin-backend.png",
     icons: ["uil", "uil-figma"],
     tags: ["Node.js", "Fastify", "Prisma", "PostgreSQL"],
-    projectLink: "https://gerenciador-tarefas.vercel.app",
+    projectLink: "https://github.com/malu-monteiro/admin-panel-backend",
   },
   {
     image: "/website-estetica-automotiva.png",
