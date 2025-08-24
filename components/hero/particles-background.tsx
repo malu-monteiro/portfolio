@@ -4,17 +4,14 @@ import { useMemo, useCallback } from "react";
 
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
-import type { Container, ISourceOptions, Engine } from "tsparticles-engine";
+import type { ISourceOptions, Engine } from "tsparticles-engine";
 
 export function ParticlesBackground() {
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
-  const particlesLoaded = useCallback(
-    async (Container: Container | undefined) => {},
-    []
-  );
+  const particlesLoaded = useCallback(async () => {}, []);
 
   const options: ISourceOptions = useMemo(
     () => ({

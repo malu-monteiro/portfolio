@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import { getMessages } from "next-intl/server";
@@ -19,11 +21,12 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: Readonly<{
-  children: React.ReactNode;
-  params: { locale: string };
+  children: ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  const { locale } = await params;
   const messages = await getMessages();
 
   return (
