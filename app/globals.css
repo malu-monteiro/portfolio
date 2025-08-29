@@ -129,3 +129,21 @@
     }
   }
 }
+
+.portfolio__wrapper .swiper-pagination {
+  position: relative;
+  margin-top: 20px;
+
+  bottom: auto;
+}
+
+.portfolio__wrapper .swiper-pagination-bullet {
+  background: #6c757d;
+
+  width: 8px;
+  height: 8px;
+}
+
+.portfolio__wrapper .swiper-pagination-bullet-active {
+  background: #7c3aed;
+}

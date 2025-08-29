@@ -1,8 +1,9 @@
-import { EffectCoverflow } from "swiper/modules";
+import { EffectCoverflow, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 
 interface CarouselProps {
   items: React.ReactNode[];
@@ -15,19 +16,22 @@ export function Carousel({
   className = "",
   slidesPerView = 3,
 }: CarouselProps) {
-  const shouldLoop = items.length <= 6;
-  const displayItems = shouldLoop ? [...items, ...items] : items;
+  const shouldLoop = items.length > 3;
 
   return (
     <Swiper
-      modules={[EffectCoverflow]}
+      modules={[EffectCoverflow, Pagination]}
       effect="coverflow"
       grabCursor={true}
       slidesPerView={slidesPerView}
-      initialSlide={shouldLoop ? items.length : 0}
+      initialSlide={0}
       centeredSlides={true}
-      loop={true}
-      loopAdditionalSlides={2}
+      loop={shouldLoop}
+      {...(shouldLoop && { loopAdditionalSlides: 2 })}
+      pagination={{
+        clickable: true,
+        dynamicBullets: items.length > 5,
+      }}
       coverflowEffect={{
         rotate: 0,
         stretch: 0,
@@ -40,20 +44,20 @@ export function Carousel({
       breakpoints={{
         320: {
           slidesPerView: 1,
-          loopAdditionalSlides: 2,
+          ...(shouldLoop && { loopAdditionalSlides: 1 }),
         },
         768: {
           slidesPerView: 2,
-          loopAdditionalSlides: 2,
+          ...(shouldLoop && { loopAdditionalSlides: 1 }),
         },
         1024: {
           slidesPerView: slidesPerView,
-          loopAdditionalSlides: 2,
+          ...(shouldLoop && { loopAdditionalSlides: 2 }),
         },
       }}
       className={`portfolio__wrapper ${className}`}
     >
-      {displayItems.map((item, index) => (
+      {items.map((item, index) => (
         <SwiperSlide key={`slide-${index}`}>{item}</SwiperSlide>
       ))}
     </Swiper>
