@@ -1,3 +1,11 @@
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Tooltip } from "@/components/ui/tooltip";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -10,6 +18,9 @@ import {
   TbBrandWhatsapp,
   TbMail,
   TbDownload,
+  TbSun,
+  TbWorld,
+  TbMoon,
 } from "react-icons/tb";
 
 import { cn } from "@/lib/utils";
@@ -60,7 +71,34 @@ const CONTACTS = [
 
 export function Header() {
   return (
-    <header className="flex flex-col gap-8">
+    <header className="flex flex-col gap-6">
+      <div className="flex items-center justify-end gap-4 pb-2">
+        <div className="flex items-center gap-1">
+          <TbWorld className="size-4 text-muted-foreground" />
+          <Select defaultValue="pt">
+            <SelectTrigger className="h-8 w-fit border-none bg-transparent p-0 focus:ring-0 shadow-none">
+              <SelectValue placeholder="PT" />
+            </SelectTrigger>
+            <SelectContent
+              position="popper"
+              side="bottom"
+              sideOffset={4}
+              align="end"
+              className="min-w-20"
+            >
+              <SelectItem value="pt">PT</SelectItem>
+              <SelectItem value="en">EN</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <TbSun className="size-4 text-muted-foreground" />
+          <Switch className="scale-90" />
+          <TbMoon className="size-4 text-muted-foreground" />
+        </div>
+      </div>
+
       <div className="flex items-center gap-6">
         <Avatar className="size-24 border-4 border-primary">
           <AvatarImage src={PROFILE.avatar} alt={PROFILE.name} />
