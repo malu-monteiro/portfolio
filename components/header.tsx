@@ -7,8 +7,10 @@ import {
   TbBrandLinkedin,
   TbBrandGitlab,
   TbBrandLeetcode,
+  TbBrandWhatsapp,
+  TbMail,
+  TbDownload,
 } from "react-icons/tb";
-import { Download, Mail, MessageCircle } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -35,21 +37,21 @@ const SOCIALS = [
 const CONTACTS = [
   {
     label: "Download CV",
-    icon: Download,
+    icon: TbDownload,
     variant: "default",
     className: "sm:flex-1",
     showLabel: true,
   },
   {
     label: "E-mail",
-    icon: Mail,
+    icon: TbMail,
     variant: "outline",
     className: "",
     showLabel: false,
   },
   {
     label: "Mensagem",
-    icon: MessageCircle,
+    icon: TbBrandWhatsapp,
     variant: "outline",
     className: "",
     showLabel: false,
