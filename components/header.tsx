@@ -1,3 +1,8 @@
+"use client";
+
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+
 import {
   Select,
   SelectContent,
@@ -70,6 +75,13 @@ const CONTACTS = [
 ] as const;
 
 export function Header() {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <header className="flex flex-col gap-6">
       <div className="flex items-center justify-end gap-4 pb-2">
@@ -93,9 +105,33 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2">
-          <TbSun className="size-4 text-muted-foreground" />
-          <Switch className="scale-90" />
-          <TbMoon className="size-4 text-muted-foreground" />
+          <TbSun
+            className={cn(
+              "size-4 transition-colors",
+              mounted && theme === "light"
+                ? "text-primary"
+                : "text-muted-foreground",
+            )}
+          />
+
+          <Switch
+            className={cn(
+              "scale-90",
+              "data-[state=unchecked]:bg-primary data-[state=checked]:bg-primary",
+            )}
+            checked={mounted && theme === "dark"}
+            onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
+            disabled={!mounted}
+          />
+
+          <TbMoon
+            className={cn(
+              "size-4 transition-colors",
+              mounted && theme === "dark"
+                ? "text-primary"
+                : "text-muted-foreground",
+            )}
+          />
         </div>
       </div>
 
